@@ -1,0 +1,19 @@
+{
+  "name": "learning-d3",
+  "version": "1.0.0",
+  "description": "Project to follow along the learning D3 course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebug/learning-d3.git"
+  },
+  "author": "Sebastian Gfeller",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sebug/learning-d3/issues"
+  },
+  "homepage": "https://github.com/sebug/learning-d3#readme"
+}
