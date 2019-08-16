@@ -4,8 +4,8 @@
   "description": "Project to follow along the learning D3 course",
   "main": "index.js",
   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "webpack"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/sebug/learning-d3#readme",
   "devDependencies": {
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6"
   },

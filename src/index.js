@@ -1,10 +1,10 @@
 import * as d3 from "d3";
+import css from './style.css';
 
-function hello() {
-    const element = document.createElement('div');
-    element.innerHTML = 'Hello for D3';
+function firstGraph() {
+    const element = document.createElement('svg');
     console.log(d3);
     return element;
 }
 
-document.body.appendChild(hello());
+document.body.appendChild(firstGraph());
