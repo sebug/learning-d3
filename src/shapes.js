@@ -18,6 +18,35 @@ function shapes() {
 	.attr('x',
 	      (d,i) => i * 60)
 	.attr('y', (d, i) => 300 - d * 15);
+
+
+    let newX = 300;
+    svg.selectAll('circle.first')
+	.data(dataArray)
+	.enter()
+	.append('circle')
+	.attr('class','first')
+	.attr('cx', (d, i) => {
+	    newX += d * 3 + 50;
+	    return newX;
+	})
+	.attr('cy','100')
+	.attr('r', (d, i) => d * 3);
+
+
+    newX = 600;
+    svg.selectAll('ellipse')
+	.data(dataArray)
+	.enter()
+	.append('ellipse')
+	.attr('class','second')
+	.attr('cx', (d, i) => {
+	    newX += d * 3 + 50;
+	    return newX;
+	})
+	.attr('cy','100')
+	.attr('rx', (d, i) => d * 3)
+	.attr('ry', '30');
     
 }
 
