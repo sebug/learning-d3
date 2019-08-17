@@ -1,4 +1,4 @@
-import firstGraph from './shapes.js';
+import interpolate from './interpolate.js';
 
-firstGraph();
+interpolate();
 

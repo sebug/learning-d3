@@ -63,31 +63,27 @@ function shapes() {
 	.attr('x2', (d, i) => newX + (d * 15))
 	.attr('y2', (d, i) => 80 + i * 20);
 
-    svg.append('text')
-	.attr('x', newX)
-	.attr('y', 150)
+
+    const textArray = ['start', 'middle', 'end'];
+    svg.append('text').selectAll('tspan')
+	.data(textArray)
+	.enter()
+	.append('text')
+    	.attr('x', newX)
+	.attr('y', (d, i) => 150 + i * 30)
 	.attr('fill', 'none')
 	.attr('stroke','blue')
 	.attr('stroke-width', '2')
-	.attr('text-anchor', 'start')
+	.attr('text-anchor', (d, i) => d)
+	.attr('dominant-baseline', 'middle')
 	.attr('font-size', '30')
-	.text('start');
-    svg.append('text')
-	.attr('x', newX)
-	.attr('y', 180)
-	.attr('fill','blue')
-	.attr('stroke', 'none')
-	.attr('text-anchor', 'middle')
-	.attr('font-size', '30')
-	.text('middle');
-    svg.append('text')
-	.attr('x', newX)
-	.attr('y', 210)
-	.attr('stroke','blue')
-	.attr('fill', 'none')
-	.attr('text-anchor', 'end')
-	.attr('font-size', '30')
-	.text('end');
+	.text((d, i) => d);
+
+    svg.append('line')
+	.attr('x1', newX)
+	.attr('y1', 150)
+	.attr('x2', newX)
+	.attr('y2', 210);
     
 }
 
