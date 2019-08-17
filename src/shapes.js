@@ -39,7 +39,6 @@ function shapes() {
 	.data(dataArray)
 	.enter()
 	.append('ellipse')
-	.attr('class','second')
 	.attr('cx', (d, i) => {
 	    newX += d * 3 + 50;
 	    return newX;
@@ -47,6 +46,48 @@ function shapes() {
 	.attr('cy','100')
 	.attr('rx', (d, i) => d * 3)
 	.attr('ry', '30');
+
+
+    newX = 1000;
+    svg.selectAll('line')
+	.data(dataArray)
+	.enter()
+	.append('line')
+	// .style('stroke', 'green')
+	// .attr('stroke', 'blue')
+	.attr('stroke-width', '2')
+	.attr('x1', (d, i) => {
+	    return newX;
+	})
+	.attr('y1', (d, i) => 80 + i * 20)
+	.attr('x2', (d, i) => newX + (d * 15))
+	.attr('y2', (d, i) => 80 + i * 20);
+
+    svg.append('text')
+	.attr('x', newX)
+	.attr('y', 150)
+	.attr('fill', 'none')
+	.attr('stroke','blue')
+	.attr('stroke-width', '2')
+	.attr('text-anchor', 'start')
+	.attr('font-size', '30')
+	.text('start');
+    svg.append('text')
+	.attr('x', newX)
+	.attr('y', 180)
+	.attr('fill','blue')
+	.attr('stroke', 'none')
+	.attr('text-anchor', 'middle')
+	.attr('font-size', '30')
+	.text('middle');
+    svg.append('text')
+	.attr('x', newX)
+	.attr('y', 210)
+	.attr('stroke','blue')
+	.attr('fill', 'none')
+	.attr('text-anchor', 'end')
+	.attr('font-size', '30')
+	.text('end');
     
 }
 
