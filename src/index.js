@@ -1,4 +1,4 @@
-import area from './area.js';
+import interpolate from './interpolate.js';
 
-area();
+interpolate();
 
