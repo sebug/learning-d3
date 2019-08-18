@@ -22,9 +22,21 @@ function areaOuter() {
     const height = 200;
     const width = 500;
 
+    const margin = {
+	left: 50,
+	right: 50,
+	top: 40,
+	bottom: 0
+    };
+
     const y = d3.scaleLinear()
 	  .domain([0, maxY])
 	  .range([height, 0]);
+
+    const yAxis = d3.axisLeft(y)
+	  .ticks(3)
+	  .tickPadding(10)
+	  .tickSize(10);
 
     const area = d3.area()
 	  .x((d, i) => i * 20)
@@ -35,7 +47,13 @@ function areaOuter() {
 	  .attr('width', '100%')
 	  .attr('height', '100%');
 
-    svg.append('path').attr('d', area(randomData));
+    const chartGroup = svg.append('g').attr('class','chartgroup')
+    	  .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+    chartGroup.append('path').attr('d', area(randomData));
+
+    chartGroup.append('g').attr('class','axis y')
+	.call(yAxis);
 }
 
 export default areaOuter;
