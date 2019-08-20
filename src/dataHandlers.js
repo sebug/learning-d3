@@ -26,8 +26,6 @@ function dataHandlers() {
     const parsedXml = domParser.parseFromString(theXML, 'text/xml');
 
     const letters = Array.from(parsedXml.documentElement.getElementsByTagName('letter'));
-
-    console.log(letters);
 }
 
 export default dataHandlers;
