@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import css from './style.css';
 import dataTSV from '../data.tsv';
 import dataTXT from '../data.txt';
+import theJSON from '../treeData.json';
 
 const parseDate = d3.timeParse('%m/%d/%Y');
 
@@ -20,7 +21,7 @@ function dataHandlers() {
     const rows = psv.parse(dataTXT);
     const newRows = rows.map(formatRow);
 
-    console.log(newRows);
+    console.log(theJSON);
 }
 
 export default dataHandlers;
