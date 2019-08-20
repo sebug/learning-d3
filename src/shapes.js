@@ -4,9 +4,23 @@ import css from './style.css';
 function shapes() {
     const dataArray = [5,11,18];
 
+    const dataDays = ['Mon', 'Wed', 'Fri'];
+
+    const rainbow = d3.scaleSequential(d3.interpolateRainbow).domain([0, 10]);
+    const rainbow2 = d3.scaleSequential(d3.interpolateRainbow).domain([0, 3]);
+
+    const x = d3.scaleOrdinal()
+	  .domain(dataDays)
+	  .range([25, 85, 145]);
+
+    const xAxis = d3.axisBottom(x);
+
     const svg = d3.select('body').append('svg')
 	.attr('height','100%')
 	  .attr('width','100%');
+
+
+    const cat10 = d3.schemeCategory10;
 
     svg.selectAll('rect')
 	.data(dataArray)
@@ -14,10 +28,15 @@ function shapes() {
 	.append('rect')
 	.attr('height', (d, i) => d * 15)
 	.attr('width','50')
-	.attr('fill', 'pink')
+	.attr('fill', (d, i) => rainbow(i))
 	.attr('x',
 	      (d,i) => i * 60)
 	.attr('y', (d, i) => 300 - d * 15);
+
+    svg.append('g')
+	.attr('class', 'x axis hidden')
+	.attr('transform', `translate(0, 300)`)
+	.call(xAxis);
 
 
     let newX = 300;
@@ -26,6 +45,7 @@ function shapes() {
 	.enter()
 	.append('circle')
 	.attr('class','first')
+	.attr('fill', (d, i) => rainbow2(i))
 	.attr('cx', (d, i) => {
 	    newX += d * 3 + 50;
 	    return newX;
@@ -39,6 +59,7 @@ function shapes() {
 	.data(dataArray)
 	.enter()
 	.append('ellipse')
+	.attr('fill', (d, i) => cat10[i])
 	.attr('cx', (d, i) => {
 	    newX += d * 3 + 50;
 	    return newX;

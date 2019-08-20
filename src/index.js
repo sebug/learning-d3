@@ -1,4 +1,4 @@
-import area from './area.js';
+import shapes from './shapes.js';
 
-area();
+shapes();
 
