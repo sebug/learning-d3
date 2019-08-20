@@ -1,4 +1,4 @@
-import tree from './tree.js';
+import voronoi from './voronoi.js';
 
-tree();
+voronoi();
 
