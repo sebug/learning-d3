@@ -1,4 +1,4 @@
-import voronoi from './voronoi.js';
+import stack from './stack.js';
 
-voronoi();
+stack();
 
