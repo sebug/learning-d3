@@ -23,6 +23,10 @@ module.exports = {
 	    {
 		test: /\.txt$/i,
 		use: 'raw-loader'
+	    },
+	    {
+		test: /\.xml$/i,
+		use: 'raw-loader'
 	    }
 	    ]
     }

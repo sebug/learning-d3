@@ -3,6 +3,7 @@ import css from './style.css';
 import dataTSV from '../data.tsv';
 import dataTXT from '../data.txt';
 import theJSON from '../treeData.json';
+import theXML from '../data.xml';
 
 const parseDate = d3.timeParse('%m/%d/%Y');
 
@@ -21,7 +22,12 @@ function dataHandlers() {
     const rows = psv.parse(dataTXT);
     const newRows = rows.map(formatRow);
 
-    console.log(theJSON);
+    const domParser = new DOMParser();
+    const parsedXml = domParser.parseFromString(theXML, 'text/xml');
+
+    const letters = Array.from(parsedXml.documentElement.getElementsByTagName('letter'));
+
+    console.log(letters);
 }
 
 export default dataHandlers;
