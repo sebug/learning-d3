@@ -1,4 +1,4 @@
-import shapes from './shapes.js';
+import prices from './prices.js';
 
-shapes();
+prices();
 
