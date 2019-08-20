@@ -1,4 +1,4 @@
-import dataHandlers from './dataHandlers.js';
+import tree from './tree.js';
 
-dataHandlers();
+tree();
 
