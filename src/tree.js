@@ -33,6 +33,16 @@ function tree() {
 	.attr('cy', (d, i) => d.y)
 	.attr('r', 5);
 
+    chartGroup.selectAll('path')
+	.data(root.descendants().slice(1))
+	.enter()
+	.append('path')
+	.attr('class', 'link')
+	.attr('d', d => {
+	    return 'M' + d.x + ',' + d.y + 'L' +
+		d.parent.x + ',' + d.parent.y;
+	});
+
     console.log(root);
 }
 
