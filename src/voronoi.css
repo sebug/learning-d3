@@ -2,3 +2,13 @@ html, body {
     margin: 0;
     height: 100%;
 }
+
+
+g.polygon path {
+    fill: white;
+    stroke: lightsteelblue;
+}
+
+g.fuel circle {
+    fill: steelblue;
+}

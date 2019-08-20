@@ -17,6 +17,15 @@ function voronoi() {
 	  .attr('height', '100%');
 
     svg.append('g')
+	.attr('class', 'polygon')
+	.selectAll('path')
+	.data(voronoi.polygons(vertices))
+	.enter()
+	.append('path')
+	.attr('d', d => 'M' +
+	      d.join('L') + 'Z');
+
+    svg.append('g')
 	.attr('class', 'fuel')
 	.selectAll('circle')
 	.data(vertices)
