@@ -19,6 +19,10 @@ module.exports = {
 	    {
 		test: /\.tsv$/i,
 		use: 'raw-loader'
+	    },
+	    {
+		test: /\.txt$/i,
+		use: 'raw-loader'
 	    }
 	    ]
     }

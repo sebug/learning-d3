@@ -1,9 +1,26 @@
 import * as d3 from "d3";
 import css from './style.css';
 import dataTSV from '../data.tsv';
+import dataTXT from '../data.txt';
+
+const parseDate = d3.timeParse('%m/%d/%Y');
 
 function dataHandlers() {
-    console.log(dataTSV);
+    const formatRow = (d) => {
+	return {
+	    month: parseDate(d.month),
+	    price: Number(d.price.trim().slice(1))
+	};
+    };
+    
+    const data = d3.tsvParse(dataTSV, formatRow);
+
+    const psv = d3.dsvFormat('|');
+
+    const rows = psv.parse(dataTXT);
+    const newRows = rows.map(formatRow);
+
+    console.log(newRows);
 }
 
 export default dataHandlers;
