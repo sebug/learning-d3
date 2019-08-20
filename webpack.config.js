@@ -15,6 +15,10 @@ module.exports = {
 	    {
 		test: /\.csv$/i,
 		use: 'raw-loader'
+	    },
+	    {
+		test: /\.tsv$/i,
+		use: 'raw-loader'
 	    }
 	    ]
     }

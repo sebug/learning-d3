@@ -1,4 +1,4 @@
-import prices from './prices.js';
+import dataHandlers from './dataHandlers.js';
 
-prices();
+dataHandlers();
 
