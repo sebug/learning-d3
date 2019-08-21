@@ -1,4 +1,4 @@
-import dataHandlers from './dataHandlers.js';
+import voronoi from './voronoi.js';
 
-dataHandlers();
+voronoi();
 
