@@ -1,4 +1,4 @@
-import stack from './stack.js';
+import dataHandlers from './dataHandlers.js';
 
-stack();
+dataHandlers();
 
