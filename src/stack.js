@@ -41,7 +41,7 @@ function stackOuter() {
     const stack = d3.stack().keys(categories);
 
     const area = d3.area()
-	  .x((d, i) => dataXml[i].date)
+	  .x((d, i) => x(dataXml[i].date))
 	  .y0(d => y(d[0]))
 	  .y1(d => y(d[1]));
 
@@ -58,6 +58,25 @@ function stackOuter() {
     chartGroup.append('g').attr('class', 'x axis')
 	.attr('transform', `translate(0, ${height})`)
 	.call(d3.axisBottom(x));
+
+    chartGroup.append('g').attr('class', 'y axis')
+	.call(d3.axisLeft(y).ticks(5));
+
+    // chartGroup.selectAll('path.area')
+    // 	.data(stacked)
+    // 	.enter()
+    // 	.append('path')
+    // 	.attr('class','area')
+    // 	.attr('d', d => area(d));
+
+    chartGroup.selectAll('g.area')
+	.data(stacked)
+	.enter()
+	.append('g')
+	.attr('class', 'area')
+	.append('path')
+	.attr('class', 'area')
+	.attr('d', d => area(d));
 
 }
 
