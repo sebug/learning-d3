@@ -9,6 +9,10 @@ g.polygon path {
     stroke: lightsteelblue;
 }
 
+g.polygon path:hover {
+    fill: yellow;
+}
+
 g.fuel circle {
     fill: steelblue;
 }
