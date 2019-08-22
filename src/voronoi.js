@@ -7,6 +7,10 @@ function voronoi() {
 
     renderInner();
 
+    function dragged() {
+	d3.select(this).attr('transform', `translate(${d3.event.x},${d3.event.y})`);
+    }
+
     function renderInner() {
 
 	const tooltip = d3.select('body').append('div')
@@ -32,7 +36,16 @@ function voronoi() {
 	      .attr('width', '100%')
 	      .attr('height', '100%');
 
-	svg.append('g')
+	const chartGroup = svg.append('g')
+	      .call(d3.drag().on('drag', dragged));
+
+	chartGroup.call(d3.zoom()
+			.scaleExtent([0.8, 2])
+			.on('zoom', () => {
+	    chartGroup.attr('transform', d3.event.transform);
+	}));
+
+	chartGroup.append('g')
 	    .attr('class', 'polygon')
 	    .selectAll('path')
 	    .data(voronoi.polygons(vertices))
@@ -48,7 +61,7 @@ function voronoi() {
 		tooltip.html('whatever you like ' + d.length);
 	    });
 
-	svg.append('g')
+	chartGroup.append('g')
 	    .attr('class', 'fuel')
 	    .selectAll('circle')
 	    .data(vertices)
