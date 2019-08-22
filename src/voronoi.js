@@ -9,6 +9,10 @@ function voronoi() {
 
     function renderInner() {
 
+	const tooltip = d3.select('body').append('div')
+	      .style('opacity', '0')
+	      .style('position', 'absolute');
+
 	const svgTest = d3.select('body').select('svg');
 	if (!svgTest.empty()) {
 	    svgTest.remove();
@@ -35,7 +39,14 @@ function voronoi() {
 	    .enter()
 	    .append('path')
 	    .attr('d', d => 'M' +
-		  d.join('L') + 'Z');
+		  d.join('L') + 'Z')
+	    .on('mousemove', function (d) {
+		tooltip.style('opacity', '1')
+		    .style('left', d3.event.pageX + 'px')
+		    .style('top', d3.event.pageY + 'px');
+
+		tooltip.html('whatever you like ' + d.length);
+	    });
 
 	svg.append('g')
 	    .attr('class', 'fuel')
