@@ -59,7 +59,11 @@ function voronoi() {
 	    .attr('r', '2.5');
 
 	d3.select('g.polygon').select('path:nth-child(30)')
-	    .style('fill', 'blue');
+	    .transition()
+	    .duration(1000)
+	    .style('fill', 'blue')
+	    .attr('transform', 'translate(10,10)');
+	
 	d3.select('g.polygon').select('path:nth-child(30)')
 	    .dispatch('mousemove');
     }
