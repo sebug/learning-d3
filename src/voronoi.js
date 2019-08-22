@@ -57,6 +57,11 @@ function voronoi() {
 	    .attr('cx', d => d[0])
 	    .attr('cy', d => d[1])
 	    .attr('r', '2.5');
+
+	d3.select('g.polygon').select('path:nth-child(30)')
+	    .style('fill', 'blue');
+	d3.select('g.polygon').select('path:nth-child(30)')
+	    .dispatch('mousemove');
     }
 }
 
